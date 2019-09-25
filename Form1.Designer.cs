@@ -70,7 +70,7 @@
             this.splitButton_Vendor.ShowDropDownOnButtonClick = false;
             this.splitButton_Vendor.Size = new System.Drawing.Size(100, 30);
             this.splitButton_Vendor.TabIndex = 4;
-            this.splitButton_Vendor.Text = "Vendor";
+            this.splitButton_Vendor.Text = "(Select)";
             this.splitButton_Vendor.ThemeName = "Office2010Blue";
             this.splitButton_Vendor.DropDowItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.splitButton_Vendor_Click);
             // 
@@ -78,10 +78,10 @@
             // 
             this.gradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.gradientPanel1.Controls.Add(this.Grid_BudgetLog);
-            this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(800, 184);
+            this.gradientPanel1.Size = new System.Drawing.Size(351, 614);
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.ThemeName = "Office2010Blue";
             // 
@@ -97,7 +97,7 @@
             this.Grid_BudgetLog.Location = new System.Drawing.Point(0, 0);
             this.Grid_BudgetLog.Name = "Grid_BudgetLog";
             this.Grid_BudgetLog.ShowCurrentCellBorderBehavior = Syncfusion.Windows.Forms.Grid.GridShowCurrentCellBorder.GrayWhenLostFocus;
-            this.Grid_BudgetLog.Size = new System.Drawing.Size(796, 180);
+            this.Grid_BudgetLog.Size = new System.Drawing.Size(347, 610);
             this.Grid_BudgetLog.TabIndex = 0;
             this.Grid_BudgetLog.TableOptions.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
             this.Grid_BudgetLog.TableOptions.SelectionTextColor = System.Drawing.SystemColors.HighlightText;
@@ -195,7 +195,7 @@
             this.gradientPanelExt1.Controls.Add(this.butt_RentalInsurance);
             this.gradientPanelExt1.Controls.Add(this.butt_Rent);
             this.gradientPanelExt1.InnerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.gradientPanelExt1.Location = new System.Drawing.Point(283, 202);
+            this.gradientPanelExt1.Location = new System.Drawing.Point(361, 262);
             this.gradientPanelExt1.Name = "gradientPanelExt1";
             this.gradientPanelExt1.Size = new System.Drawing.Size(349, 203);
             this.gradientPanelExt1.TabIndex = 6;
@@ -231,7 +231,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(18, 202);
+            this.monthCalendar1.Location = new System.Drawing.Point(363, 88);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 7;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
@@ -240,7 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(715, 614);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.gradientPanelExt1);
             this.Controls.Add(this.gradientPanel1);

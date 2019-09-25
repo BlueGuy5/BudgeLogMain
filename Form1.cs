@@ -29,7 +29,10 @@ namespace BudgeLogMain
             this.budgetLogTableAdapter.Fill(this.budgetAutomateDataSet.BudgetLog);
             txt_Date.Text = monthCalendar1.TodayDate.ToString("MM/dd/yyyy");
             Fill_Vendor_Toolstrip();
-
+            this.Grid_BudgetLog.EnableAutoSize = true;
+            //Disable the default empty row
+            this.Grid_BudgetLog.TopLevelGroupOptions.ShowAddNewRecordBeforeDetails = false;
+            this.Grid_BudgetLog.TopLevelGroupOptions.ShowAddNewRecordAfterDetails = false;
         }
 
         private void Fill_Vendor_Toolstrip()
@@ -75,45 +78,42 @@ namespace BudgeLogMain
 
         private void butt_Apply_Click(object sender, EventArgs e)
         {
-            double tmpBalance = 0;
-
-            SqlCommand cmdRead = new SqlCommand("Select tmpBalance FROM BudgetLog " +
-                "WHERE Date = " + DBNull.Value + " and Vendor = " + DBNull.Value + " and Cost = " + DBNull.Value + " and Balance = " + DBNull.Value, con);
-            con.Open();
-            SqlDataReader dr = cmdRead.ExecuteReader();
-            if (dr.Read())
+            if (splitButton_Vendor.Text == "(Select)")
             {
-                tmpBalance = Convert.ToDouble(dr["tmpBalance"].ToString());
+                MessageBox.Show("Please Select a Vendor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            con.Close();
+            else
+            {
+                double tmpCurrentBalance = 0;
+                double tmpBalance = 0;
 
-            SqlCommand cmdUpdate = new SqlCommand("Update BudgetLog Set date = @date, vendor = @vendor, Cost = @cost, Balance = @Balance", con);
-            con.Open();
-            cmdUpdate.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
-            cmdUpdate.Parameters.Add("@vendor", SqlDbType.VarChar).Value = splitButton_Vendor.Text;
-            cmdUpdate.Parameters.Add("@cost", SqlDbType.Float).Value = Convert.ToDouble(txt_Cost.Text);
-            cmdUpdate.Parameters.Add("@Balance", SqlDbType.Float).Value = (tmpBalance - Convert.ToDouble(txt_Cost.Text));
-            con.Open();
-            cmdUpdate.ExecuteNonQuery();
-            con.Close();
+                SqlCommand cmdRead = new SqlCommand("Select CurrentBalance FROM CurrentBudget", con);
+                con.Open();
+                SqlDataReader dr = cmdRead.ExecuteReader();
+                if (dr.Read())
+                {
+                    tmpCurrentBalance = Convert.ToDouble(dr["CurrentBalance"].ToString());
+                }
+                con.Close();
 
-            SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (tmpBalance) Values (@tmpBalance) " +
-                "Where date = " + DBNull.Value + " and Vendor = " + DBNull.Value + " and Cost = " + DBNull.Value + " and Balance = " + DBNull.Value, con);
-            cmdInsert.Parameters.Add("@tmpBalance", SqlDbType.Float).Value = (tmpBalance - Convert.ToDouble(txt_Cost.Text));
-            con.Open();
-            cmdInsert.ExecuteNonQuery();
-            con.Close();
+                tmpBalance = tmpCurrentBalance - Convert.ToDouble(txt_Cost.Text);
 
-            /*
-            SqlCommand cmd = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost) Values (@date, @vendor, @Cost)", con);
-            cmd.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
-            cmd.Parameters.Add("@vendor", SqlDbType.VarChar).Value = splitButton_Vendor.Text;
-            cmd.Parameters.Add("@Cost", SqlDbType.VarChar).Value = Convert.ToDouble(txt_Cost.Text);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            */
-            this.budgetLogTableAdapter.Fill(this.budgetAutomateDataSet.BudgetLog);
+                SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost, Balance) Values (@date, @vendor, @cost, @balance)", con);
+                cmdInsert.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
+                cmdInsert.Parameters.Add("@vendor", SqlDbType.VarChar).Value = splitButton_Vendor.Text;
+                cmdInsert.Parameters.Add("@cost", SqlDbType.VarChar).Value = "-" + Convert.ToDouble(txt_Cost.Text);
+                cmdInsert.Parameters.Add("@balance", SqlDbType.VarChar).Value = tmpBalance;
+                con.Open();
+                cmdInsert.ExecuteNonQuery();
+                con.Close();
+
+                SqlCommand cmdUpdate = new SqlCommand("Update CurrentBudget Set CurrentBalance = @currentbalance", con);
+                cmdUpdate.Parameters.Add("@currentbalance", SqlDbType.Float).Value = tmpBalance;
+                con.Open();
+                cmdUpdate.ExecuteNonQuery();
+                con.Close();
+                this.budgetLogTableAdapter.Fill(this.budgetAutomateDataSet.BudgetLog);
+            }
         }
 
         private void ExitApp (object sender, FormClosedEventArgs e)
