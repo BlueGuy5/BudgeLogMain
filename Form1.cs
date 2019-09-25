@@ -63,7 +63,16 @@ namespace BudgeLogMain
 
         private void butt_Rent_Click(object sender, EventArgs e)
         {
-
+            SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost, Balance) Values (@date, @vendor, @cost, @balance)", con);
+            cmdInsert.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
+            cmdInsert.Parameters.Add("@vendor", SqlDbType.VarChar).Value = splitButton_Vendor.Text;
+            cmdInsert.Parameters.Add("@cost", SqlDbType.VarChar).Value = "-" + Convert.ToDouble(txt_Cost.Text);
+            cmdInsert.Parameters.Add("@balance", SqlDbType.VarChar).Value = tmpBalance;
+            con.Open();
+            cmdInsert.ExecuteNonQuery();
+            con.Close();        
+            UpdateCurrentBudget(txt_Cost.Text);
+            this.budgetLogTableAdapter.Fill(this.budgetAutomateDataSet.BudgetLog);
         }
 
         private void butt_RentalInsurance_Click(object sender, EventArgs e)
@@ -72,7 +81,7 @@ namespace BudgeLogMain
         }
 
         private void butt_AutoInsurance_Click(object sender, EventArgs e)
-        {
+        {       
 
         }
 
@@ -83,7 +92,8 @@ namespace BudgeLogMain
                 MessageBox.Show("Please Select a Vendor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
+            {  
+                /*
                 double tmpCurrentBalance = 0;
                 double tmpBalance = 0;
 
@@ -95,25 +105,69 @@ namespace BudgeLogMain
                     tmpCurrentBalance = Convert.ToDouble(dr["CurrentBalance"].ToString());
                 }
                 con.Close();
-
-                tmpBalance = tmpCurrentBalance - Convert.ToDouble(txt_Cost.Text);
+                */
+                //tmpBalance = tmpCurrentBalance - Convert.ToDouble(txt_Cost.Text);
+                
 
                 SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost, Balance) Values (@date, @vendor, @cost, @balance)", con);
                 cmdInsert.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
                 cmdInsert.Parameters.Add("@vendor", SqlDbType.VarChar).Value = splitButton_Vendor.Text;
-                cmdInsert.Parameters.Add("@cost", SqlDbType.VarChar).Value = "-" + Convert.ToDouble(txt_Cost.Text);
+                cmdInsert.Parameters.Add("@cost", SqlDbType.VarChar).Value = "-" + (ReadCurrentBalance() -Convert.ToDouble(txt_Cost.Text));
                 cmdInsert.Parameters.Add("@balance", SqlDbType.VarChar).Value = tmpBalance;
                 con.Open();
                 cmdInsert.ExecuteNonQuery();
                 con.Close();
-
+                /*
                 SqlCommand cmdUpdate = new SqlCommand("Update CurrentBudget Set CurrentBalance = @currentbalance", con);
                 cmdUpdate.Parameters.Add("@currentbalance", SqlDbType.Float).Value = tmpBalance;
                 con.Open();
                 cmdUpdate.ExecuteNonQuery();
                 con.Close();
+                */
+                UpdateCurrentBudget(txt_Cost.Text);
                 this.budgetLogTableAdapter.Fill(this.budgetAutomateDataSet.BudgetLog);
             }
+        }
+        private float ReadCurrentBalance()
+        {
+            double tmpCurrentBalance = 0;
+            double tmpBalance = 0;
+
+            SqlCommand cmdRead = new SqlCommand("Select CurrentBalance FROM CurrentBudget", con);
+            con.Open();
+            SqlDataReader dr = cmdRead.ExecuteReader();
+            if (dr.Read())
+            {
+                tmpCurrentBalance = Convert.ToDouble(dr["CurrentBalance"].ToString());
+                return tmpCurrentBalance;
+            }
+            return null;
+            con.Close();
+        }
+        
+        private void UpdateCurrentBudget(double Cost)
+        {
+            /*
+            double tmpCurrentBalance = 0;
+            double tmpBalance = 0;
+
+            SqlCommand cmdRead = new SqlCommand("Select CurrentBalance FROM CurrentBudget", con);
+            con.Open();
+            SqlDataReader dr = cmdRead.ExecuteReader();
+            if (dr.Read())
+            {
+                tmpCurrentBalance = Convert.ToDouble(dr["CurrentBalance"].ToString());
+            }
+            con.Close();
+            */
+
+            //tmpBalance = ReadCurrentBalance() - Convert.ToDouble(Cost);
+
+            SqlCommand cmdUpdate = new SqlCommand("Update CurrentBudget Set CurrentBalance = @currentbalance", con);
+            cmdUpdate.Parameters.Add("@currentbalance", SqlDbType.Float).Value = ReadCurrentBalance() - Convert.ToDouble(Cost);
+            con.Open();
+            cmdUpdate.ExecuteNonQuery();
+            con.Close();
         }
 
         private void ExitApp (object sender, FormClosedEventArgs e)
