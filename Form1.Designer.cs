@@ -45,6 +45,12 @@
             this.txt_Date = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.butt_Apply = new Syncfusion.Windows.Forms.ButtonAdv();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.txt_rent = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.txt_AutoInsurance = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.txt_RentalInsurance = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.lbl_Rent = new Syncfusion.Windows.Forms.Tools.GradientLabel();
+            this.lbl_RentalInsurance = new Syncfusion.Windows.Forms.Tools.GradientLabel();
+            this.lbl_AutoInsurance = new Syncfusion.Windows.Forms.Tools.GradientLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_BudgetLog)).BeginInit();
@@ -54,6 +60,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanelExt1)).BeginInit();
             this.gradientPanelExt1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Date)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_rent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_AutoInsurance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_RentalInsurance)).BeginInit();
             this.SuspendLayout();
             // 
             // splitButton_Vendor
@@ -170,6 +179,7 @@
             // txt_Cost
             // 
             this.txt_Cost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.txt_Cost.BeforeTouchSize = new System.Drawing.Size(87, 20);
             this.txt_Cost.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(202)))), ((int)(((byte)(221)))));
             this.txt_Cost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -189,8 +199,8 @@
             this.gradientPanelExt1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gradientPanelExt1.Controls.Add(this.txt_Date);
             this.gradientPanelExt1.Controls.Add(this.butt_Apply);
-            this.gradientPanelExt1.Controls.Add(this.txt_Cost);
             this.gradientPanelExt1.Controls.Add(this.splitButton_Vendor);
+            this.gradientPanelExt1.Controls.Add(this.txt_Cost);
             this.gradientPanelExt1.Controls.Add(this.butt_AutoInsurance);
             this.gradientPanelExt1.Controls.Add(this.butt_RentalInsurance);
             this.gradientPanelExt1.Controls.Add(this.butt_Rent);
@@ -204,6 +214,7 @@
             // txt_Date
             // 
             this.txt_Date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.txt_Date.BeforeTouchSize = new System.Drawing.Size(87, 20);
             this.txt_Date.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(202)))), ((int)(((byte)(221)))));
             this.txt_Date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -231,16 +242,118 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(363, 88);
+            this.monthCalendar1.Location = new System.Drawing.Point(361, 2);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 7;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
+            // txt_rent
+            // 
+            this.txt_rent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.txt_rent.BeforeTouchSize = new System.Drawing.Size(87, 20);
+            this.txt_rent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(202)))), ((int)(((byte)(221)))));
+            this.txt_rent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_rent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_rent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txt_rent.Location = new System.Drawing.Point(694, 12);
+            this.txt_rent.Name = "txt_rent";
+            this.txt_rent.Size = new System.Drawing.Size(87, 20);
+            this.txt_rent.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
+            this.txt_rent.TabIndex = 8;
+            this.txt_rent.Text = "1000";
+            this.txt_rent.ThemeName = "Office2010";
+            // 
+            // txt_AutoInsurance
+            // 
+            this.txt_AutoInsurance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.txt_AutoInsurance.BeforeTouchSize = new System.Drawing.Size(87, 20);
+            this.txt_AutoInsurance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(202)))), ((int)(((byte)(221)))));
+            this.txt_AutoInsurance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_AutoInsurance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_AutoInsurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txt_AutoInsurance.Location = new System.Drawing.Point(694, 80);
+            this.txt_AutoInsurance.Name = "txt_AutoInsurance";
+            this.txt_AutoInsurance.Size = new System.Drawing.Size(87, 20);
+            this.txt_AutoInsurance.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
+            this.txt_AutoInsurance.TabIndex = 9;
+            this.txt_AutoInsurance.Text = "75";
+            this.txt_AutoInsurance.ThemeName = "Office2010";
+            // 
+            // txt_RentalInsurance
+            // 
+            this.txt_RentalInsurance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.txt_RentalInsurance.BeforeTouchSize = new System.Drawing.Size(87, 20);
+            this.txt_RentalInsurance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(202)))), ((int)(((byte)(221)))));
+            this.txt_RentalInsurance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_RentalInsurance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_RentalInsurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txt_RentalInsurance.Location = new System.Drawing.Point(694, 46);
+            this.txt_RentalInsurance.Name = "txt_RentalInsurance";
+            this.txt_RentalInsurance.Size = new System.Drawing.Size(87, 20);
+            this.txt_RentalInsurance.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
+            this.txt_RentalInsurance.TabIndex = 10;
+            this.txt_RentalInsurance.Text = "10";
+            this.txt_RentalInsurance.ThemeName = "Office2010";
+            // 
+            // lbl_Rent
+            // 
+            this.lbl_Rent.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
+            this.lbl_Rent.BeforeTouchSize = new System.Drawing.Size(95, 20);
+            this.lbl_Rent.BorderAppearance = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_Rent.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
+            | System.Windows.Forms.Border3DSide.Right) 
+            | System.Windows.Forms.Border3DSide.Bottom)));
+            this.lbl_Rent.Location = new System.Drawing.Point(593, 12);
+            this.lbl_Rent.Name = "lbl_Rent";
+            this.lbl_Rent.Size = new System.Drawing.Size(95, 20);
+            this.lbl_Rent.TabIndex = 11;
+            this.lbl_Rent.Text = "Rent";
+            this.lbl_Rent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Rent.ThemeName = "Office2010Blue";
+            // 
+            // lbl_RentalInsurance
+            // 
+            this.lbl_RentalInsurance.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
+            this.lbl_RentalInsurance.BeforeTouchSize = new System.Drawing.Size(95, 20);
+            this.lbl_RentalInsurance.BorderAppearance = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_RentalInsurance.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
+            | System.Windows.Forms.Border3DSide.Right) 
+            | System.Windows.Forms.Border3DSide.Bottom)));
+            this.lbl_RentalInsurance.Location = new System.Drawing.Point(593, 46);
+            this.lbl_RentalInsurance.Name = "lbl_RentalInsurance";
+            this.lbl_RentalInsurance.Size = new System.Drawing.Size(95, 20);
+            this.lbl_RentalInsurance.TabIndex = 12;
+            this.lbl_RentalInsurance.Text = "Rental Insurance";
+            this.lbl_RentalInsurance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_RentalInsurance.ThemeName = "Office2010Blue";
+            // 
+            // lbl_AutoInsurance
+            // 
+            this.lbl_AutoInsurance.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
+            this.lbl_AutoInsurance.BeforeTouchSize = new System.Drawing.Size(97, 20);
+            this.lbl_AutoInsurance.BorderAppearance = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_AutoInsurance.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
+            | System.Windows.Forms.Border3DSide.Right) 
+            | System.Windows.Forms.Border3DSide.Bottom)));
+            this.lbl_AutoInsurance.Location = new System.Drawing.Point(591, 80);
+            this.lbl_AutoInsurance.Name = "lbl_AutoInsurance";
+            this.lbl_AutoInsurance.Size = new System.Drawing.Size(97, 20);
+            this.lbl_AutoInsurance.TabIndex = 13;
+            this.lbl_AutoInsurance.Text = "Auto Insurance";
+            this.lbl_AutoInsurance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_AutoInsurance.ThemeName = "Office2010Blue";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 614);
+            this.ClientSize = new System.Drawing.Size(811, 614);
+            this.Controls.Add(this.lbl_AutoInsurance);
+            this.Controls.Add(this.lbl_RentalInsurance);
+            this.Controls.Add(this.lbl_Rent);
+            this.Controls.Add(this.txt_RentalInsurance);
+            this.Controls.Add(this.txt_AutoInsurance);
+            this.Controls.Add(this.txt_rent);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.gradientPanelExt1);
             this.Controls.Add(this.gradientPanel1);
@@ -258,7 +371,11 @@
             this.gradientPanelExt1.ResumeLayout(false);
             this.gradientPanelExt1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Date)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_rent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_AutoInsurance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_RentalInsurance)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -279,6 +396,12 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_Cost;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_Date;
+        private Syncfusion.Windows.Forms.Tools.GradientLabel lbl_AutoInsurance;
+        private Syncfusion.Windows.Forms.Tools.GradientLabel lbl_RentalInsurance;
+        private Syncfusion.Windows.Forms.Tools.GradientLabel lbl_Rent;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_RentalInsurance;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_AutoInsurance;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_rent;
     }
 }
 
