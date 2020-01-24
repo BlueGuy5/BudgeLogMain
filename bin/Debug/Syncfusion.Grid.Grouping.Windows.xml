@@ -14846,6 +14846,11 @@
             </summary>
             <param name="barStyle">The <see cref="T:Syncfusion.Windows.Forms.Grid.Grouping.BarStyleInfo"/>dataBar style.</param>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Grid.Grouping.BarStyleInfo.OnChanged">
+            <summary>
+            To notify the property changes of ConditionalDataBarRule.
+            </summary>
+        </member>
         <member name="M:Syncfusion.Windows.Forms.Grid.Grouping.BarStyleInfo.Clone">
             <summary>
              Creates a new object that is a copy of the current instance.
@@ -23513,6 +23518,13 @@
             Initialize a new instance of the <see cref="T:Syncfusion.Windows.Forms.Grid.Grouping.RuleCollectionEditor"/> class.
             </summary>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Grid.Grouping.RuleCollectionEditor.RuleCollectionEditor_Load(System.Object,System.EventArgs)">
+            <summary>
+            To load the rule collection editor form
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>contains event data.</param>
+        </member>
         <member name="M:Syncfusion.Windows.Forms.Grid.Grouping.RuleCollectionEditor.listBox1_SelectedIndexChanged(System.Object,System.EventArgs)">
             <summary>
             Raised when listBox selected Index was changed.
@@ -23703,6 +23715,27 @@
             </summary>
             <param name="sender">The source control</param>
             <param name="e">The <see cref="T:System.EventArgs"/>contains data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Grid.Grouping.RuleCollectionEditor.TxtMin_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Set the minimum valu of DataBar
+            </summary>
+            <param name="sender">The source control</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>contains data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Grid.Grouping.RuleCollectionEditor.TxtMax_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Set the maximum valu of DataBar
+            </summary>
+            <param name="sender">The source control</param>
+            <param name="e">The <see cref="T:System.EventArgs"/>contains data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Grid.Grouping.RuleCollectionEditor.GetMaxMinValue(System.String)">
+            <summary>
+            Convert the maximum and minimum value for databar
+            </summary>
+            <param name="text">text value of Maximum or Minimum</param>
+            <returns></returns>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Grid.Grouping.RuleCollectionEditor.components">
             <summary>

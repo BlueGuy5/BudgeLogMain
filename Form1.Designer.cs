@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Syncfusion.Windows.Forms.Tools.SplitButtonRenderer splitButtonRenderer1 = new Syncfusion.Windows.Forms.Tools.SplitButtonRenderer();
+            Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor gridColumnDescriptor1 = new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitButton_Vendor = new Syncfusion.Windows.Forms.Tools.SplitButton();
             this.gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             this.Grid_BudgetLog = new Syncfusion.Windows.Forms.Grid.Grouping.GridGroupingControl();
@@ -42,6 +44,8 @@
             this.butt_AutoInsurance = new Syncfusion.Windows.Forms.ButtonAdv();
             this.txt_Cost = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
+            this.txt_Descript = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.butt_Internet = new Syncfusion.Windows.Forms.ButtonAdv();
             this.txt_Date = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.butt_Apply = new Syncfusion.Windows.Forms.ButtonAdv();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -51,6 +55,8 @@
             this.lbl_Rent = new Syncfusion.Windows.Forms.Tools.GradientLabel();
             this.lbl_RentalInsurance = new Syncfusion.Windows.Forms.Tools.GradientLabel();
             this.lbl_AutoInsurance = new Syncfusion.Windows.Forms.Tools.GradientLabel();
+            this.lbl_Internet = new Syncfusion.Windows.Forms.Tools.GradientLabel();
+            this.txt_internet = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanel1)).BeginInit();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_BudgetLog)).BeginInit();
@@ -59,10 +65,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_Cost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanelExt1)).BeginInit();
             this.gradientPanelExt1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Descript)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Date)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_rent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AutoInsurance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_RentalInsurance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_internet)).BeginInit();
             this.SuspendLayout();
             // 
             // splitButton_Vendor
@@ -100,14 +108,21 @@
             this.Grid_BudgetLog.ApplyVisualStyles = false;
             this.Grid_BudgetLog.BackColor = System.Drawing.SystemColors.Window;
             this.Grid_BudgetLog.DataSource = this.budgetLogBindingSource;
-            this.Grid_BudgetLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Grid_BudgetLog.Dock = System.Windows.Forms.DockStyle.Left;
             this.Grid_BudgetLog.GridOfficeScrollBars = Syncfusion.Windows.Forms.OfficeScrollBars.Office2010;
             this.Grid_BudgetLog.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2010Blue;
             this.Grid_BudgetLog.Location = new System.Drawing.Point(0, 0);
             this.Grid_BudgetLog.Name = "Grid_BudgetLog";
             this.Grid_BudgetLog.ShowCurrentCellBorderBehavior = Syncfusion.Windows.Forms.Grid.GridShowCurrentCellBorder.GrayWhenLostFocus;
-            this.Grid_BudgetLog.Size = new System.Drawing.Size(347, 610);
+            this.Grid_BudgetLog.Size = new System.Drawing.Size(364, 610);
             this.Grid_BudgetLog.TabIndex = 0;
+            gridColumnDescriptor1.MappingName = "Balance";
+            gridColumnDescriptor1.Width = 64;
+            this.Grid_BudgetLog.TableDescriptor.Columns.AddRange(new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor[] {
+            new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor("Date"),
+            new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor("Vendor"),
+            new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor("Cost"),
+            gridColumnDescriptor1});
             this.Grid_BudgetLog.TableOptions.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
             this.Grid_BudgetLog.TableOptions.SelectionTextColor = System.Drawing.SystemColors.HighlightText;
             this.Grid_BudgetLog.Text = "gridGroupingControl1";
@@ -153,7 +168,7 @@
             this.butt_RentalInsurance.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Office2010;
             this.butt_RentalInsurance.BeforeTouchSize = new System.Drawing.Size(77, 32);
             this.butt_RentalInsurance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.butt_RentalInsurance.Location = new System.Drawing.Point(134, 29);
+            this.butt_RentalInsurance.Location = new System.Drawing.Point(117, 29);
             this.butt_RentalInsurance.Name = "butt_RentalInsurance";
             this.butt_RentalInsurance.Size = new System.Drawing.Size(77, 32);
             this.butt_RentalInsurance.TabIndex = 2;
@@ -167,7 +182,7 @@
             this.butt_AutoInsurance.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Office2010;
             this.butt_AutoInsurance.BeforeTouchSize = new System.Drawing.Size(77, 32);
             this.butt_AutoInsurance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.butt_AutoInsurance.Location = new System.Drawing.Point(240, 29);
+            this.butt_AutoInsurance.Location = new System.Drawing.Point(200, 29);
             this.butt_AutoInsurance.Name = "butt_AutoInsurance";
             this.butt_AutoInsurance.Size = new System.Drawing.Size(77, 32);
             this.butt_AutoInsurance.TabIndex = 3;
@@ -197,6 +212,8 @@
             this.gradientPanelExt1.Border = new System.Windows.Forms.Padding(12);
             this.gradientPanelExt1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.gradientPanelExt1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gradientPanelExt1.Controls.Add(this.txt_Descript);
+            this.gradientPanelExt1.Controls.Add(this.butt_Internet);
             this.gradientPanelExt1.Controls.Add(this.txt_Date);
             this.gradientPanelExt1.Controls.Add(this.butt_Apply);
             this.gradientPanelExt1.Controls.Add(this.splitButton_Vendor);
@@ -205,11 +222,41 @@
             this.gradientPanelExt1.Controls.Add(this.butt_RentalInsurance);
             this.gradientPanelExt1.Controls.Add(this.butt_Rent);
             this.gradientPanelExt1.InnerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.gradientPanelExt1.Location = new System.Drawing.Point(361, 262);
+            this.gradientPanelExt1.Location = new System.Drawing.Point(372, 262);
             this.gradientPanelExt1.Name = "gradientPanelExt1";
-            this.gradientPanelExt1.Size = new System.Drawing.Size(349, 203);
+            this.gradientPanelExt1.Size = new System.Drawing.Size(427, 203);
             this.gradientPanelExt1.TabIndex = 6;
             this.gradientPanelExt1.ThemeName = "Office2010Blue";
+            // 
+            // txt_Descript
+            // 
+            this.txt_Descript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.txt_Descript.BeforeTouchSize = new System.Drawing.Size(87, 20);
+            this.txt_Descript.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(202)))), ((int)(((byte)(221)))));
+            this.txt_Descript.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Descript.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_Descript.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txt_Descript.Location = new System.Drawing.Point(257, 74);
+            this.txt_Descript.Multiline = true;
+            this.txt_Descript.Name = "txt_Descript";
+            this.txt_Descript.Size = new System.Drawing.Size(150, 98);
+            this.txt_Descript.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
+            this.txt_Descript.TabIndex = 9;
+            this.txt_Descript.ThemeName = "Office2010";
+            // 
+            // butt_Internet
+            // 
+            this.butt_Internet.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Office2010;
+            this.butt_Internet.BeforeTouchSize = new System.Drawing.Size(77, 32);
+            this.butt_Internet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.butt_Internet.Location = new System.Drawing.Point(283, 29);
+            this.butt_Internet.Name = "butt_Internet";
+            this.butt_Internet.Size = new System.Drawing.Size(77, 32);
+            this.butt_Internet.TabIndex = 8;
+            this.butt_Internet.Text = "Internet";
+            this.butt_Internet.ThemeName = "Office2010";
+            this.butt_Internet.UseVisualStyle = true;
+            this.butt_Internet.Click += new System.EventHandler(this.butt_Internet_Click);
             // 
             // txt_Date
             // 
@@ -242,7 +289,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(361, 2);
+            this.monthCalendar1.Location = new System.Drawing.Point(372, 2);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 7;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
@@ -255,12 +302,12 @@
             this.txt_rent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_rent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txt_rent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txt_rent.Location = new System.Drawing.Point(694, 12);
+            this.txt_rent.Location = new System.Drawing.Point(714, 12);
             this.txt_rent.Name = "txt_rent";
             this.txt_rent.Size = new System.Drawing.Size(87, 20);
             this.txt_rent.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
             this.txt_rent.TabIndex = 8;
-            this.txt_rent.Text = "1000";
+            this.txt_rent.Text = "1039";
             this.txt_rent.ThemeName = "Office2010";
             // 
             // txt_AutoInsurance
@@ -271,7 +318,7 @@
             this.txt_AutoInsurance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_AutoInsurance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txt_AutoInsurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txt_AutoInsurance.Location = new System.Drawing.Point(694, 80);
+            this.txt_AutoInsurance.Location = new System.Drawing.Point(714, 80);
             this.txt_AutoInsurance.Name = "txt_AutoInsurance";
             this.txt_AutoInsurance.Size = new System.Drawing.Size(87, 20);
             this.txt_AutoInsurance.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
@@ -287,7 +334,7 @@
             this.txt_RentalInsurance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_RentalInsurance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txt_RentalInsurance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txt_RentalInsurance.Location = new System.Drawing.Point(694, 46);
+            this.txt_RentalInsurance.Location = new System.Drawing.Point(714, 46);
             this.txt_RentalInsurance.Name = "txt_RentalInsurance";
             this.txt_RentalInsurance.Size = new System.Drawing.Size(87, 20);
             this.txt_RentalInsurance.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
@@ -303,7 +350,7 @@
             this.lbl_Rent.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
             | System.Windows.Forms.Border3DSide.Right) 
             | System.Windows.Forms.Border3DSide.Bottom)));
-            this.lbl_Rent.Location = new System.Drawing.Point(593, 12);
+            this.lbl_Rent.Location = new System.Drawing.Point(611, 12);
             this.lbl_Rent.Name = "lbl_Rent";
             this.lbl_Rent.Size = new System.Drawing.Size(95, 20);
             this.lbl_Rent.TabIndex = 11;
@@ -319,7 +366,7 @@
             this.lbl_RentalInsurance.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
             | System.Windows.Forms.Border3DSide.Right) 
             | System.Windows.Forms.Border3DSide.Bottom)));
-            this.lbl_RentalInsurance.Location = new System.Drawing.Point(593, 46);
+            this.lbl_RentalInsurance.Location = new System.Drawing.Point(611, 46);
             this.lbl_RentalInsurance.Name = "lbl_RentalInsurance";
             this.lbl_RentalInsurance.Size = new System.Drawing.Size(95, 20);
             this.lbl_RentalInsurance.TabIndex = 12;
@@ -335,7 +382,7 @@
             this.lbl_AutoInsurance.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
             | System.Windows.Forms.Border3DSide.Right) 
             | System.Windows.Forms.Border3DSide.Bottom)));
-            this.lbl_AutoInsurance.Location = new System.Drawing.Point(591, 80);
+            this.lbl_AutoInsurance.Location = new System.Drawing.Point(611, 80);
             this.lbl_AutoInsurance.Name = "lbl_AutoInsurance";
             this.lbl_AutoInsurance.Size = new System.Drawing.Size(97, 20);
             this.lbl_AutoInsurance.TabIndex = 13;
@@ -343,12 +390,45 @@
             this.lbl_AutoInsurance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_AutoInsurance.ThemeName = "Office2010Blue";
             // 
+            // lbl_Internet
+            // 
+            this.lbl_Internet.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
+            this.lbl_Internet.BeforeTouchSize = new System.Drawing.Size(97, 20);
+            this.lbl_Internet.BorderAppearance = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_Internet.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
+            | System.Windows.Forms.Border3DSide.Right) 
+            | System.Windows.Forms.Border3DSide.Bottom)));
+            this.lbl_Internet.Location = new System.Drawing.Point(611, 110);
+            this.lbl_Internet.Name = "lbl_Internet";
+            this.lbl_Internet.Size = new System.Drawing.Size(97, 20);
+            this.lbl_Internet.TabIndex = 14;
+            this.lbl_Internet.Text = "Comcast";
+            this.lbl_Internet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Internet.ThemeName = "Office2010Blue";
+            // 
+            // txt_internet
+            // 
+            this.txt_internet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.txt_internet.BeforeTouchSize = new System.Drawing.Size(87, 20);
+            this.txt_internet.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(202)))), ((int)(((byte)(221)))));
+            this.txt_internet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_internet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_internet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txt_internet.Location = new System.Drawing.Point(714, 110);
+            this.txt_internet.Name = "txt_internet";
+            this.txt_internet.Size = new System.Drawing.Size(87, 20);
+            this.txt_internet.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2010;
+            this.txt_internet.TabIndex = 15;
+            this.txt_internet.Text = "39.99";
+            this.txt_internet.ThemeName = "Office2010";
+            // 
             // Form1
             // 
-            this.AcceptButton = this.butt_Apply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 614);
+            this.Controls.Add(this.txt_internet);
+            this.Controls.Add(this.lbl_Internet);
             this.Controls.Add(this.lbl_AutoInsurance);
             this.Controls.Add(this.lbl_RentalInsurance);
             this.Controls.Add(this.lbl_Rent);
@@ -358,6 +438,7 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.gradientPanelExt1);
             this.Controls.Add(this.gradientPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BudgetLog";
@@ -371,10 +452,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gradientPanelExt1)).EndInit();
             this.gradientPanelExt1.ResumeLayout(false);
             this.gradientPanelExt1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Descript)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_rent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AutoInsurance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_RentalInsurance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_internet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,6 +486,10 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_RentalInsurance;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_AutoInsurance;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_rent;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_internet;
+        private Syncfusion.Windows.Forms.Tools.GradientLabel lbl_Internet;
+        private Syncfusion.Windows.Forms.ButtonAdv butt_Internet;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_Descript;
     }
 }
 

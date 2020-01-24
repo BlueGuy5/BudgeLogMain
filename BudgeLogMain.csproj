@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Totz\Desktop\BudgetLog\</PublishUrl>
+    <PublishUrl>C:\Users\BlueGuy\Desktop\Scripts\BudgetAutomate\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/BudgeLogMain/</UpdateUrl>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>25</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -61,21 +61,219 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>BudgetIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Syncfusion.Core.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Grid.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Grid.Windows, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.Grouping.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.SfInput.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Shared.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Shared.Windows, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.SpellChecker.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.Tools.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
-    <Reference Include="Syncfusion.Tools.Windows, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.BulletGraph.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.BulletGraph.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Calculate.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Calculate.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Chart.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Chart.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Chart.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Chart.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Compression.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Core.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Data.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Data.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Diagram.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Diagram.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Diagram.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Diagram.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.DocIO.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.DocIO.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Edit.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Edit.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Gauge.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Gauge.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Grid.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Grouping.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Grid.Grouping.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Grid.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.GridCommon.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.GridConverter.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.GridConverter.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Grouping.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Grouping.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Grouping.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Grouping.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.HTMLUI.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.HTMLUI.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.HTMLUI.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.HTMLUI.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Linq.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Maps.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Maps.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.OfficeChart.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Pdf.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.PdfViewer.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.PdfViewer.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.PivotChart.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.PivotChart.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Presentation.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Presentation.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.ProjIO.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.ProjIO.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Schedule.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Schedule.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Scripting.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Scripting.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SfBarcode.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.SfBarcode.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGridConverter.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.SfInput.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SfSmithChart.WinForms, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Shared.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Shared.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.SpellChecker.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Spreadsheet.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Spreadsheet.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Tools.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.Tools.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.TreeMap.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.TreeMap.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.XlsIO.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Windows, Version=17.3460.0.14, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.14\Assemblies\4.6\Syncfusion.XlsIO.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -95,10 +293,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BudgetAutomateDataSet.cs">
+      <DependentUpon>BudgetAutomateDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BudgetAutomateDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BudgetAutomateDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BudgetAutomateDataSet1_tbl_reminders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetAutomateDataSet1_tbl_reminders.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -106,10 +312,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Office2010Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office2010Form1.Designer.cs">
+      <DependentUpon>Office2010Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office2010Form1.resx">
+      <DependentUpon>Office2010Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,6 +346,17 @@
     </None>
     <None Include="BudgetAutomateDataSet.xss">
       <DependentUpon>BudgetAutomateDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BudgetAutomateDataSet1_tbl_reminders.xsc">
+      <DependentUpon>BudgetAutomateDataSet1_tbl_reminders.xsd</DependentUpon>
+    </None>
+    <None Include="BudgetAutomateDataSet1_tbl_reminders.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BudgetAutomateDataSet1_tbl_reminders.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BudgetAutomateDataSet1_tbl_reminders.xss">
+      <DependentUpon>BudgetAutomateDataSet1_tbl_reminders.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -156,6 +382,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BudgetIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

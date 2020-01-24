@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Syncfusion.Windows.Forms.Grid.Grouping;
+using Syncfusion.Grouping;
 
 namespace BudgeLogMain
 {
@@ -16,10 +18,11 @@ namespace BudgeLogMain
         public Form1()
         {
             InitializeComponent();
+            this.Grid_BudgetLog.TableControlCellClick += new GridTableControlCellClickEventHandler(this.GridGroupingControlClick);
             this.FormClosed += ExitApp;
 
         }
-        const string source = "Data Source=DESKTOP-AC927C3;Initial Catalog=BudgetAutomate;Integrated Security=True";
+        const string source = "Data Source=Desktop-60BSQ2I;Initial Catalog=BudgetAutomate;Integrated Security=True";
         SqlConnection con = new SqlConnection(source);
         Syncfusion.Windows.Forms.Tools.toolstripitem toolstripitem_VendorName;
         //DateTime Date = DateTime.Now;
@@ -54,6 +57,7 @@ namespace BudgeLogMain
         private void splitButton_Vendor_Click(object sender, ToolStripItemClickedEventArgs e)
         {
             splitButton_Vendor.Text = e.ClickedItem.Text;
+            txt_Descript.Text = string.Empty;
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -103,6 +107,20 @@ namespace BudgeLogMain
             this.budgetLogTableAdapter.Fill(this.budgetAutomateDataSet.BudgetLog);
         }
 
+        private void butt_Internet_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost, Balance) Values (@date, @vendor, @cost, @balance)", con);
+            cmdInsert.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
+            cmdInsert.Parameters.Add("@vendor", SqlDbType.VarChar).Value = lbl_Internet.Text;
+            cmdInsert.Parameters.Add("@cost", SqlDbType.VarChar).Value = "-" + Convert.ToDouble(txt_internet.Text);
+            cmdInsert.Parameters.Add("@balance", SqlDbType.VarChar).Value = ReadCurrentBalance() - Convert.ToDouble(txt_internet.Text);
+            con.Open();
+            cmdInsert.ExecuteNonQuery();
+            con.Close();
+            UpdateCurrentBudget(Convert.ToDouble(txt_internet.Text));
+            this.budgetLogTableAdapter.Fill(this.budgetAutomateDataSet.BudgetLog);
+        }
+
         private void butt_Apply_Click(object sender, EventArgs e)
         {
             if (splitButton_Vendor.Text == "(Select)")
@@ -111,7 +129,7 @@ namespace BudgeLogMain
             }
             else if (splitButton_Vendor.Text == "Beyondsoft")
             {
-                double pay = 13.25;
+                double pay = 14.75;
                 SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost, Balance) Values (@date, @vendor, @cost, @balance)", con);
                 cmdInsert.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
                 cmdInsert.Parameters.Add("@vendor", SqlDbType.VarChar).Value = splitButton_Vendor.Text;
@@ -131,11 +149,12 @@ namespace BudgeLogMain
             }
             else
             {               
-                SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost, Balance) Values (@date, @vendor, @cost, @balance)", con);
+                SqlCommand cmdInsert = new SqlCommand("Insert Into BudgetLog (Date, Vendor, Cost, Balance, Descript) Values (@date, @vendor, @cost, @balance, @Descript)", con);
                 cmdInsert.Parameters.Add("@date", SqlDbType.VarChar).Value = txt_Date.Text;
                 cmdInsert.Parameters.Add("@vendor", SqlDbType.VarChar).Value = splitButton_Vendor.Text;
                 cmdInsert.Parameters.Add("@cost", SqlDbType.VarChar).Value = "-" + Convert.ToDouble(txt_Cost.Text);
                 cmdInsert.Parameters.Add("@balance", SqlDbType.VarChar).Value = ReadCurrentBalance() - Convert.ToDouble(txt_Cost.Text);
+                cmdInsert.Parameters.Add("@Descript", SqlDbType.VarChar).Value = txt_Descript.Text;
                 con.Open();
                 cmdInsert.ExecuteNonQuery();
                 con.Close();
@@ -169,6 +188,23 @@ namespace BudgeLogMain
             con.Close();
         }
 
+        private void GridGroupingControlClick(object sender, Syncfusion.Windows.Forms.Grid.Grouping.GridTableControlCellClickEventArgs e)
+        {
+            GridTableCellStyleInfo style = (GridTableCellStyleInfo)e.TableControl.GetTableViewStyleInfo(e.Inner.RowIndex, e.Inner.ColIndex);
+            Record currentRecord = style.TableCellIdentity.DisplayElement.GetRecord();
+
+            SqlCommand readBudgetTable = new SqlCommand("Select Date,Vendor,Cost,Descript From BudgetLog Where ID = " + (currentRecord.Id + 100), con);
+            con.Open();
+            SqlDataReader dr = readBudgetTable.ExecuteReader();
+            if (dr.Read())
+            {
+                txt_Date.Text = dr["Date"].ToString();
+                splitButton_Vendor.Text = dr["Vendor"].ToString();
+                txt_Cost.Text = dr["Cost"].ToString();
+                txt_Descript.Text = dr["Descript"].ToString();
+            }
+            con.Close();
+        }
         private void ExitApp (object sender, FormClosedEventArgs e)
         {
             Application.Exit();
